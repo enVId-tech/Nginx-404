@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Error</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -157,10 +157,13 @@
             setTimeout(() => {
                 error.innerHTML = Math.floor(Math.random() * 1000);
                 aFooter.innerHTML = `<a href="https://github.com/enVId-tech" id="aFooter" target="_blank" rel="noopener">enVIdTech 2021</a><br>Error ${Math.floor(Math.random() * 1000)}`;
+                document.title = `Error`
             }, i * 10);
         }
 
+
         setTimeout(() => {
+            document.title = 'Error 404';
             error.innerHTML = '404';
             aFooter.innerHTML = '<a href="https://github.com/enVId-tech" id="aFooter" target="_blank" rel="noopener">enVIdTech 2021</a><br>Error 404';
             error.style.color = '#ff0000';
