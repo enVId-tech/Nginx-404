@@ -194,6 +194,7 @@
 		const notfound = document.getElementById('notfound');
 		const aFooter = document.getElementById('aFooter');
 		const numError = 1000;
+        const myNameUpdated = `enVId Tech ${new Date().getFullYear().toString()}`;
 
 		message.innerHTML = `<p>${url} is not available. Either this page does not exist, or the domain was incorrectly provided. Go to <a href="https://links.etran.dev">links.etran.dev</a> to see a list of all available links</p>`;
 		main.appendChild(message);
@@ -202,7 +203,7 @@
 		for (let i = 0; i < numError / 10; i++) {
 			setTimeout(() => {
 				error.innerHTML = Math.floor(Math.random() * 1000);
-				aFooter.innerHTML = `<a href="https://github.com/enVId-tech" id="aFooter" target="_blank" rel="noopener">enVIdTech 2025</a><br>Error ${Math.floor(Math.random() * 1000)}`;
+				aFooter.innerHTML = `<a href="https://github.com/enVId-tech" id="aFooter" target="_blank" rel="noopener">${myNameUpdated}</a><br>Error ${Math.floor(Math.random() * 1000)}`;
 				document.title = `Error`
 			}, i * 10);
 		}
@@ -211,7 +212,7 @@
 		setTimeout(() => {
 			document.title = 'Error 404';
 			error.innerHTML = '404';
-			aFooter.innerHTML = '<a href="https://github.com/enVId-tech" id="aFooter" target="_blank" rel="noopener">enVIdTech 2025</a><br>Error 404';
+			aFooter.innerHTML = `<a href="https://github.com/enVId-tech" id="aFooter" target="_blank" rel="noopener">${myNameUpdated}</a><br>Error 404`;
 			error.style.color = '#ff0000';
 			error.style.textShadow = '0 0 7.5px #ff0000';
 			notfound.style.animation = 'unfadeDown 0.5s forwards ease-in-out';
