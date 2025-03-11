@@ -1,0 +1,13 @@
+node_modules
+README.md
+.gitignore
+.eslintrc.json
+.dockerignore
+Dockerfile
+LICENSE
+.idea
+.idea/
+.vs
+.vs/
+.vscode
+.vscode/

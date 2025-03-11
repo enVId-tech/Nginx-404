@@ -1,39 +1,39 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, RefObject } from 'react';
 import Link from 'next/link';
 import styles from './page.module.scss';
 
-export default function NotFoundPage() {
+export default function NotFoundPage(): React.ReactElement {
     const [errorCode, setErrorCode] = useState<string>('000');
     const [footerError, setFooterError] = useState<string>('000');
     const [animateElements, setAnimateElements] = useState<boolean>(false);
     const [hostname, setHostname] = useState<string>('');
-    const errorRef = useRef<HTMLHeadingElement>(null);
-    const notFoundRef = useRef<HTMLHeadingElement>(null);
-    const appRef = useRef<HTMLDivElement>(null);
-    const mainRef = useRef<HTMLDivElement>(null);
+    const errorRef: RefObject<HTMLHeadingElement | null> = useRef<HTMLHeadingElement>(null);
+    const notFoundRef: RefObject<HTMLHeadingElement | null> = useRef<HTMLHeadingElement>(null);
+    const appRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
+    const mainRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
 
-    const currentYear = new Date().getFullYear();
-    const myNameUpdated = `enVId Tech ${currentYear}`;
-    const numError = 1000;
+    const currentYear: number = new Date().getFullYear();
+    const myNameUpdated: string = `enVId Tech ${currentYear}`;
+    const numError: number = 1000;
 
-    useEffect(() => {
+    useEffect((): void => {
         // Set the hostname after component has mounted
         setHostname(window.location.host);
 
         document.title = 'Error';
 
         // Random error code animation
-        for (let i = 0; i < numError / 10; i++) {
-            setTimeout(() => {
+        for (let i: number = 0; i < numError / 10; i++) {
+            setTimeout((): void => {
                 setErrorCode(Math.floor(Math.random() * 1000).toString());
                 setFooterError(Math.floor(Math.random() * 1000).toString());
             }, i * 10);
         }
 
         // Final state
-        setTimeout(() => {
+        setTimeout((): void => {
             document.title = 'Error 404';
             setErrorCode('404');
             setFooterError('404');
@@ -47,7 +47,7 @@ export default function NotFoundPage() {
                 notFoundRef.current.style.animation = 'unfadeDown 0.5s forwards ease-in-out';
             }
 
-            setTimeout(() => {
+            setTimeout((): void => {
                 setAnimateElements(true);
             }, 50);
         }, numError);
